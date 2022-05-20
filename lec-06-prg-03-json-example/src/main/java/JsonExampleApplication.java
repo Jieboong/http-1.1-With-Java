@@ -13,8 +13,7 @@ public class JsonExampleApplication {
 
     public static void main(String[] args) throws IOException, ParseException {
 
-        // file path 개인 컴퓨터에 맞게 조정 필요
-        Reader reader = new FileReader("http-1.1-With-Java/lec-06-prg-03-json-example/src/main/java/data/lec-06-prg-03-json-example.json");
+        Reader reader = new FileReader("src/main/java/data/lec-06-prg-03-json-example.json");
         JSONObject superHeroes = (JSONObject) (new JSONParser()).parse(reader);
 
         System.out.println(superHeroes.get("homeTown"));
