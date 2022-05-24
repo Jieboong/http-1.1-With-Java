@@ -1,3 +1,6 @@
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.stream.JsonWriter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -51,8 +54,12 @@ public class JsonWriteApplication {
         JSONArray powers = (JSONArray) ((JSONObject) members1.get(1)).get("powers");
         System.out.println(powers.get(2));
 
-        FileWriter fileWriter = new FileWriter("src/main/java/data/lec-06-prg-04-json-example.json");
-        fileWriter.write(superHeroes.toJSONString());
-        fileWriter.flush();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        JsonWriter jsonWriter = new JsonWriter(new FileWriter("./src/main/java/data/lec-06-prg-04-json-example.json"));
+        jsonWriter.setIndent("\t");
+        gson.toJson(superHeroes, superHeroes.getClass(), jsonWriter);
+
+        jsonWriter.close();
     }
 }
