@@ -1,12 +1,14 @@
 package project.lec06prg07restserver;
 
+import org.json.simple.JSONObject;
+
 import java.util.HashMap;
 
 public class MembershipManager {
-    private HashMap<String, String> database;
+    private JSONObject database;
 
-    public HashMap<String, String> create(String id, String value) {
-        HashMap<String, String> result = new HashMap<>();
+    public JSONObject create(String id, String value) {
+        JSONObject result = new JSONObject();
 
         if (database.containsKey(id)) {
             result.put(id, "None");
@@ -18,8 +20,8 @@ public class MembershipManager {
         return result;
     }
 
-    public HashMap<String, String> read(String id) {
-        HashMap<String, String> result = new HashMap<>();
+    public JSONObject read(String id) {
+        JSONObject result = new JSONObject();
         if (database.containsKey(id)) {
             result.put(id, this.database.get(id));
         } else {
@@ -28,8 +30,8 @@ public class MembershipManager {
         return result;
     }
 
-    public HashMap<String, String> update(String id, String value) {
-        HashMap<String, String> result = new HashMap<>();
+    public JSONObject update(String id, String value) {
+        JSONObject result = new JSONObject();
         if (database.containsKey(id)) {
             this.database.put(id, value);
             result.put(id, database.get(id));
@@ -39,8 +41,8 @@ public class MembershipManager {
         return result;
     }
 
-    public HashMap<String, String> delete(String id) {
-        HashMap<String, String> result = new HashMap<>();
+    public JSONObject delete(String id) {
+        JSONObject result = new JSONObject();
         if (database.containsKey(id)) {
             database.remove(id);
             result.put(id, "Removed");
@@ -51,6 +53,6 @@ public class MembershipManager {
     }
 
     public MembershipManager(){
-        this.database = new HashMap<>();
+        this.database = new JSONObject();
     }
 }
