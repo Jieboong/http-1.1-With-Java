@@ -4,7 +4,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 
-@RestController("/membership_api")
+@RestController
+@RequestMapping("/membership_api")
 public class Controller {
     private MembershipManager myManager = new MembershipManager();
 
