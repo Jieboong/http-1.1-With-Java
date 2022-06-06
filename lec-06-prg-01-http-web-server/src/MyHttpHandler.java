@@ -15,7 +15,6 @@ public class MyHttpHandler implements HttpHandler {
 
     @Override
     public void handle(HttpExchange exchange) throws IOException {
-
         this.httpExchange = exchange;
         String requestMethod = httpExchange.getRequestMethod();
         //공통되는 printHttpRequestDetail, sendHttpResponseHeader 먼저 처리

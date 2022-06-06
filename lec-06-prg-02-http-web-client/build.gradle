@@ -1,9 +1,13 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
-group 'org.example'
+group 'MyHttpClient'
 version '1.0-SNAPSHOT'
+
+apply plugin: 'application'
+mainClassName = 'MyHttpClient'
 
 repositories {
     mavenCentral()
@@ -15,9 +19,11 @@ dependencies {
     implementation(platform("com.squareup.okhttp3:okhttp-bom:4.9.3"))
     implementation("com.squareup.okhttp3:okhttp")
     implementation("com.squareup.okhttp3:logging-interceptor")
-
 }
 
-test {
-    useJUnitPlatform()
+ext{
+    javaMainCalss = 'java/MyHttpClient.java'
+}
+application{
+    mainClass = 'MyHttpClient'
 }
